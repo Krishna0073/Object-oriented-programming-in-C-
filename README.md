@@ -1,4 +1,4 @@
-# 🚀 Daily C++ OOP Practice
+# 🚀 Daily C++ OOP Practice — Day 5
 
 Welcome to my **C++ Object-Oriented Programming (OOP) Practice Repository**.
 
@@ -20,6 +20,8 @@ Through daily practice, I am working on:
 * Understanding access control
 * Working with STL containers inside classes
 * Understanding friend functions
+* Working with pointers and memory
+* Understanding pointers with objects and classes
 * Experimenting with C++ language features
 * Improving problem-solving and programming skills
 * Maintaining a record of my daily learning progress
@@ -28,12 +30,15 @@ Through daily practice, I am working on:
 
 ## 📂 Practice Files
 
-| File                  | Concepts Practiced                                                                                   |
-| --------------------- | ---------------------------------------------------------------------------------------------------- |
-| `chai.cpp`            | Classes, Objects, Data Members, Member Functions, `vector`, Object Initialization                    |
-| `Person.cpp`          | Classes, Public/Private Members, Member Function Declaration & Definition, Scope Resolution Operator |
-| `enum.cpp`            | Enumerations, Symbolic Constants, Reference Variables, Conditional Statements                        |
-| `friend_function.cpp` | Friend Functions, Object Comparison, `const` References                                              |
+| File                   | Concepts Practiced                                                                                   |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| `chai.cpp`             | Classes, Objects, Data Members, Member Functions, `vector`, Object Initialization                    |
+| `Person.cpp`           | Classes, Public/Private Members, Member Function Declaration & Definition, Scope Resolution Operator |
+| `enum.cpp`             | Enumerations, Symbolic Constants, Reference Variables, Conditional Statements                        |
+| `friend_function.cpp`  | Friend Functions, Object Comparison, `const` References                                              |
+| `pointer.cpp`          | Pointers, Void Pointers, Pointer Arithmetic, Pointer to Pointer, Pointer to Objects, `this` Pointer  |
+| `pointer_problems.cpp` | Dangling Pointers, Wild Pointers, Null Pointers, Safe Pointer Usage                                  |
+| `object_array.cpp`     | Array of Objects, Object Pointers                                                                    |
 
 ---
 
@@ -158,9 +163,9 @@ This allows a `Chai` object to store multiple ingredients.
 
 # ⭐ 6. Friend Functions
 
-One of the latest concepts I am practicing is the **friend function**.
+One of the concepts I practiced is the **friend function**.
 
-A friend function is **not a member function of the class**, but the class can give it permission to access its members.
+A friend function is **not a member function of the class**, but the class can give it permission to access its private and protected members.
 
 Example:
 
@@ -188,50 +193,13 @@ bool compare(
 }
 ```
 
-### Why am I practicing this?
-
-The `compare()` function allows me to compare two different `Chai` objects.
-
-For example:
-
-```text
-chaiOne.serving = 2
-chaiTwo.serving = 1
-
-        ↓
-
-compare(chaiOne, chaiTwo)
-
-        ↓
-
-2 > 1
-
-        ↓
-
-true
-```
-
-The program can then determine which tea has more servings.
-
-### Important Point
-
-A friend function is called like a normal function:
-
-```cpp
-compare(chaiOne, chaiTwo);
-```
-
-It is **not called using an object** like:
-
-```cpp
-chaiOne.compare(chaiTwo);   // Not how this friend function is called
-```
+The function can then compare two different `Chai` objects.
 
 ---
 
 ## 7. `const` References
 
-While practicing friend functions, I am also learning about:
+While practicing friend functions, I also learned about:
 
 ```cpp
 const Chai &chaiOne
@@ -245,9 +213,9 @@ This is useful when a function only needs to **read** an object's data.
 
 ## 8. Enumerations
 
-In `enum.cpp`, I am practicing C++ enumerations.
+In `enum.cpp`, I practiced C++ enumerations.
 
-Examples include:
+Example:
 
 ```cpp
 enum Day {
@@ -261,24 +229,13 @@ enum Day {
 };
 ```
 
-and:
-
-```cpp
-enum Marks {
-    A = 90,
-    B = 80,
-    C = 70,
-    D = 60
-};
-```
-
-I am learning how enums can represent a fixed collection of named values.
+I learned how enums can represent a fixed collection of named values.
 
 ---
 
 ## 9. Reference Variables
 
-I am also practicing reference variables.
+I also practiced reference variables.
 
 Example:
 
@@ -304,6 +261,384 @@ y = 50
 
 ---
 
+# 🔥 10. Pointers in C++
+
+Today's topic focuses on **pointers**, which are one of the most important concepts for both **OOP and DSA**.
+
+A pointer is a variable that stores the **memory address of another variable**.
+
+Example:
+
+```cpp
+int x = 10;
+
+int* ptr = &x;
+```
+
+Here:
+
+```text
+x       → stores 10
+&x      → address of x
+ptr     → stores address of x
+*ptr    → value stored at that address
+```
+
+Example:
+
+```cpp
+cout << x;       // 10
+cout << *ptr;    // 10
+```
+
+---
+
+# 11. Void Pointer
+
+I practiced **void pointers**, which are generic pointers that can store the address of different data types.
+
+Example:
+
+```cpp
+int x = 10;
+
+void* ptr = &x;
+
+cout << *(int*)ptr;
+```
+
+A `void*` cannot normally be dereferenced directly because the compiler does not know what type of data it points to.
+
+---
+
+# 12. Pointer Arithmetic
+
+I also practiced pointer arithmetic.
+
+Pointers can be moved using:
+
+```cpp
+p++;
+p--;
+p + n;
+p - n;
+```
+
+This is particularly useful when working with arrays.
+
+Example:
+
+```cpp
+int arr[] = {10, 20, 30};
+
+int* p = arr;
+
+cout << *p << endl;
+
+p++;
+
+cout << *p << endl;
+```
+
+Output:
+
+```text
+10
+20
+```
+
+Pointer arithmetic moves according to the **size of the data type**, rather than simply moving one byte.
+
+---
+
+# 13. Pointer to Pointer
+
+A pointer can also store the address of another pointer.
+
+Example:
+
+```cpp
+int x = 10;
+
+int* p = &x;
+
+int** q = &p;
+```
+
+The relationship is:
+
+```text
+q
+ ↓
+p
+ ↓
+x
+ ↓
+10
+```
+
+Therefore:
+
+```cpp
+cout << x;       // 10
+cout << *p;      // 10
+cout << **q;     // 10
+```
+
+---
+
+# ⚠️ 14. Problems with Pointers
+
+I also learned about common problems that can occur when using pointers.
+
+### Dangling Pointer
+
+A dangling pointer points to memory that has already been released.
+
+```cpp
+int* p = new int(10);
+
+delete p;
+
+p = nullptr;
+```
+
+After `delete`, using `*p` before resetting it would be dangerous.
+
+---
+
+### Wild Pointer
+
+A wild pointer is an uninitialized pointer.
+
+```cpp
+int* p;
+```
+
+It may contain an unpredictable memory address.
+
+A safer approach is:
+
+```cpp
+int* p = nullptr;
+```
+
+---
+
+### Null Pointer
+
+A null pointer intentionally points to nothing.
+
+```cpp
+int* p = nullptr;
+```
+
+It can be checked before using it:
+
+```cpp
+if (p == nullptr) {
+    cout << "Pointer is empty";
+}
+```
+
+A null pointer should **never be dereferenced**.
+
+---
+
+# ⭐ 15. Classes Containing Pointers
+
+A class can contain pointers as data members.
+
+Example:
+
+```cpp
+class Node {
+public:
+    int data;
+    Node* next;
+};
+```
+
+This is extremely important for **Data Structures**.
+
+The `next` pointer can store the address of another `Node`.
+
+```text
+Node 1                 Node 2
+┌─────────────┐       ┌─────────────┐
+│ data = 10   │       │ data = 20   │
+│ next ───────┼──────→│ next = ...  │
+└─────────────┘       └─────────────┘
+```
+
+This concept forms the foundation of **Linked Lists**.
+
+---
+
+# 16. Pointer to Objects
+
+A pointer can also point to an object.
+
+Example:
+
+```cpp
+class Student {
+public:
+    string name;
+
+    void display() {
+        cout << name;
+    }
+};
+```
+
+Creating an object:
+
+```cpp
+Student s;
+```
+
+Creating a pointer to the object:
+
+```cpp
+Student* ptr = &s;
+```
+
+Members can then be accessed using the `->` operator:
+
+```cpp
+ptr->name;
+ptr->display();
+```
+
+### Important
+
+```text
+Object       → .
+Object pointer → ->
+```
+
+Example:
+
+```cpp
+s.display();       // Object
+ptr->display();    // Pointer to object
+```
+
+---
+
+# ⭐ 17. `this` Pointer
+
+The `this` pointer is a special pointer available inside non-static member functions.
+
+It points to the **current object**.
+
+Example:
+
+```cpp
+class Student {
+
+public:
+
+    string name;
+
+    void setName(string name) {
+        this->name = name;
+    }
+};
+```
+
+Here:
+
+```cpp
+this->name
+```
+
+refers to the `name` belonging to the current object.
+
+Therefore:
+
+```cpp
+this->name = name;
+```
+
+means:
+
+```text
+current object's name = parameter name
+```
+
+The `this` pointer is especially useful when class data members and function parameters have the same name.
+
+---
+
+# 18. Array of Objects
+
+I also practiced creating multiple objects using an array.
+
+Example:
+
+```cpp
+class Student {
+public:
+    string name;
+
+    void display() {
+        cout << name << endl;
+    }
+};
+```
+
+An array of objects can be created using:
+
+```cpp
+Student students[3];
+```
+
+Each element is a separate `Student` object.
+
+```cpp
+students[0].name = "Krishna";
+students[1].name = "Rahul";
+students[2].name = "Aman";
+```
+
+Objects can be accessed using the normal `.` operator.
+
+---
+
+# 19. Array of Object Pointers
+
+I also explored arrays containing pointers to objects.
+
+```cpp
+Student* students[3];
+```
+
+Unlike:
+
+```cpp
+Student students[3];
+```
+
+this creates an array of **pointers**, not an array of actual Student objects.
+
+The pointers can point to dynamically created objects:
+
+```cpp
+students[0] = new Student;
+students[1] = new Student;
+students[2] = new Student;
+```
+
+Members can then be accessed using:
+
+```cpp
+students[0]->name;
+```
+
+---
+
 # 📈 My Learning Progress
 
 ```text
@@ -325,6 +660,16 @@ Enums & References
     ↓
 Friend Functions
     ↓
+Pointers
+    ↓
+Pointer Arithmetic
+    ↓
+Pointer to Pointer
+    ↓
+Pointers with Objects
+    ↓
+this Pointer
+    ↓
 Constructors
     ↓
 Encapsulation
@@ -334,6 +679,8 @@ Inheritance
 Polymorphism
     ↓
 Advanced OOP
+    ↓
+OOP Projects
 ```
 
 ---
@@ -360,8 +707,6 @@ The goal is **consistent practice rather than trying to learn everything at once
 
 # 🔥 OOP Roadmap
 
-These are the concepts I plan to practice next:
-
 * [x] Classes
 * [x] Objects
 * [x] Data Members
@@ -371,11 +716,22 @@ These are the concepts I plan to practice next:
 * [x] Enumerations
 * [x] Reference Variables
 * [x] Friend Functions
+* [x] Pointers
+* [x] Void Pointers
+* [x] Pointer Arithmetic
+* [x] Pointer to Pointer
+* [x] Dangling Pointers
+* [x] Wild Pointers
+* [x] Null Pointers
+* [x] Classes Containing Pointers
+* [x] Pointer to Objects
+* [x] `this` Pointer
+* [x] Array of Objects
+* [x] Array of Object Pointers
 * [ ] Constructors
 * [ ] Constructor Overloading
 * [ ] Destructors
 * [ ] Encapsulation
-* [ ] `this` Pointer
 * [ ] Static Members
 * [ ] Friend Classes
 * [ ] Inheritance
@@ -428,19 +784,19 @@ Compile a C++ file using `g++`.
 Example:
 
 ```bash
-g++ chai.cpp -o chai
+g++ pointer.cpp -o pointer
 ```
 
 Run:
 
 ```bash
-./chai
+./pointer
 ```
 
 For Windows:
 
 ```bash
-chai.exe
+pointer.exe
 ```
 
 ---
