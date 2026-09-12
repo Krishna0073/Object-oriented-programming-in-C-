@@ -1,4 +1,4 @@
-# 🚀 Daily C++ OOP Practice — Day 5
+# 🚀 Daily C++ OOP Practice — Day 6
 
 Welcome to my **C++ Object-Oriented Programming (OOP) Practice Repository**.
 
@@ -8,7 +8,7 @@ This repository contains the programs I write while learning and practicing **C+
 
 ---
 
-## 🎯 Purpose
+# 🎯 Purpose
 
 The main purpose of this repository is to build a strong foundation in C++ and gradually master Object-Oriented Programming.
 
@@ -22,13 +22,14 @@ Through daily practice, I am working on:
 * Understanding friend functions
 * Working with pointers and memory
 * Understanding pointers with objects and classes
+* Understanding the `this` pointer
 * Experimenting with C++ language features
 * Improving problem-solving and programming skills
 * Maintaining a record of my daily learning progress
 
 ---
 
-## 📂 Practice Files
+# 📂 Practice Files
 
 | File                   | Concepts Practiced                                                                                   |
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -36,9 +37,10 @@ Through daily practice, I am working on:
 | `Person.cpp`           | Classes, Public/Private Members, Member Function Declaration & Definition, Scope Resolution Operator |
 | `enum.cpp`             | Enumerations, Symbolic Constants, Reference Variables, Conditional Statements                        |
 | `friend_function.cpp`  | Friend Functions, Object Comparison, `const` References                                              |
-| `pointer.cpp`          | Pointers, Void Pointers, Pointer Arithmetic, Pointer to Pointer, Pointer to Objects, `this` Pointer  |
+| `pointer.cpp`          | Pointers, Void Pointers, Pointer Arithmetic, Pointer to Pointer                                      |
 | `pointer_problems.cpp` | Dangling Pointers, Wild Pointers, Null Pointers, Safe Pointer Usage                                  |
 | `object_array.cpp`     | Array of Objects, Object Pointers                                                                    |
+| `class_pointer.cpp`    | Classes Containing Pointers, Pointer to Objects, `this` Pointer                                      |
 
 ---
 
@@ -48,7 +50,7 @@ Through daily practice, I am working on:
 
 I started with the basic building blocks of OOP: **classes and objects**.
 
-For example, the `Chai` class contains:
+A class acts as a blueprint, while an object is an instance created from that class.
 
 ```cpp
 class Chai {
@@ -59,7 +61,7 @@ public:
 };
 ```
 
-Objects are then created from the class:
+Objects:
 
 ```cpp
 Chai chaiOne;
@@ -74,11 +76,11 @@ Chai chaiTwo;
 
 ---
 
-## 2. Data Members
+# 2. Data Members
 
-I am practicing how objects can store their own data.
+I practiced how objects can store their own data.
 
-For example:
+Example:
 
 ```cpp
 string Teaname;
@@ -86,9 +88,7 @@ int serving;
 vector<string> ingredients;
 ```
 
-Each `Chai` object can contain different values.
-
-Example:
+Each object can contain different values.
 
 ```text
 chaiOne
@@ -104,9 +104,9 @@ chaiTwo
 
 ---
 
-## 3. Member Functions
+# 3. Member Functions
 
-I am also practicing functions that belong to a class.
+Member functions are functions that belong to a class.
 
 Example:
 
@@ -121,9 +121,9 @@ Member functions allow objects to perform operations using their own data.
 
 ---
 
-## 4. Member Functions Outside the Class
+# 4. Member Functions Outside the Class
 
-In `Person.cpp`, I practice declaring functions inside the class and defining them outside.
+I practiced declaring functions inside a class and defining them outside.
 
 Declaration:
 
@@ -143,13 +143,13 @@ void Person::getData() {
 }
 ```
 
-Here, `::` is the **scope resolution operator**.
+The `::` operator is called the **scope resolution operator**.
 
 ---
 
-## 5. STL `vector` with Classes
+# 5. STL `vector` with Classes
 
-I am also practicing how STL containers can be used as class members.
+I practiced using STL containers as class members.
 
 Example:
 
@@ -157,13 +157,11 @@ Example:
 vector<string> ingredients;
 ```
 
-This allows a `Chai` object to store multiple ingredients.
+This allows an object to store multiple ingredients.
 
 ---
 
 # ⭐ 6. Friend Functions
-
-One of the concepts I practiced is the **friend function**.
 
 A friend function is **not a member function of the class**, but the class can give it permission to access its private and protected members.
 
@@ -182,7 +180,7 @@ public:
 };
 ```
 
-The function is then defined outside the class:
+The function can then compare two different objects.
 
 ```cpp
 bool compare(
@@ -193,13 +191,13 @@ bool compare(
 }
 ```
 
-The function can then compare two different `Chai` objects.
-
 ---
 
-## 7. `const` References
+# 7. `const` References
 
-While practicing friend functions, I also learned about:
+I also practiced `const` references.
+
+Example:
 
 ```cpp
 const Chai &chaiOne
@@ -207,13 +205,13 @@ const Chai &chaiOne
 
 This means the object is passed by reference without allowing the function to modify it.
 
-This is useful when a function only needs to **read** an object's data.
+It is useful when a function only needs to **read** an object's data.
 
 ---
 
-## 8. Enumerations
+# 8. Enumerations
 
-In `enum.cpp`, I practiced C++ enumerations.
+I practiced C++ enumerations.
 
 Example:
 
@@ -229,13 +227,13 @@ enum Day {
 };
 ```
 
-I learned how enums can represent a fixed collection of named values.
+Enums can represent a fixed collection of named values.
 
 ---
 
-## 9. Reference Variables
+# 9. Reference Variables
 
-I also practiced reference variables.
+I practiced reference variables.
 
 Example:
 
@@ -245,8 +243,6 @@ int &y = x;
 ```
 
 Here, `y` acts as another name for `x`.
-
-Changing `y` also changes `x`.
 
 ```cpp
 y = 50;
@@ -263,9 +259,7 @@ y = 50
 
 # 🔥 10. Pointers in C++
 
-Today's topic focuses on **pointers**, which are one of the most important concepts for both **OOP and DSA**.
-
-A pointer is a variable that stores the **memory address of another variable**.
+Pointers store the **memory address of another variable**.
 
 Example:
 
@@ -275,7 +269,7 @@ int x = 10;
 int* ptr = &x;
 ```
 
-Here:
+Relationship:
 
 ```text
 x       → stores 10
@@ -284,18 +278,11 @@ ptr     → stores address of x
 *ptr    → value stored at that address
 ```
 
-Example:
-
-```cpp
-cout << x;       // 10
-cout << *ptr;    // 10
-```
-
 ---
 
 # 11. Void Pointer
 
-I practiced **void pointers**, which are generic pointers that can store the address of different data types.
+A `void*` is a generic pointer that can store the address of different data types.
 
 Example:
 
@@ -313,18 +300,17 @@ A `void*` cannot normally be dereferenced directly because the compiler does not
 
 # 12. Pointer Arithmetic
 
-I also practiced pointer arithmetic.
+I practiced pointer arithmetic.
 
 Pointers can be moved using:
 
 ```cpp
 p++;
 p--;
+
 p + n;
 p - n;
 ```
-
-This is particularly useful when working with arrays.
 
 Example:
 
@@ -347,7 +333,7 @@ Output:
 20
 ```
 
-Pointer arithmetic moves according to the **size of the data type**, rather than simply moving one byte.
+Pointer arithmetic is especially useful when working with arrays.
 
 ---
 
@@ -365,7 +351,7 @@ int* p = &x;
 int** q = &p;
 ```
 
-The relationship is:
+Relationship:
 
 ```text
 q
@@ -389,9 +375,7 @@ cout << **q;     // 10
 
 # ⚠️ 14. Problems with Pointers
 
-I also learned about common problems that can occur when using pointers.
-
-### Dangling Pointer
+## Dangling Pointer
 
 A dangling pointer points to memory that has already been released.
 
@@ -407,7 +391,7 @@ After `delete`, using `*p` before resetting it would be dangerous.
 
 ---
 
-### Wild Pointer
+## Wild Pointer
 
 A wild pointer is an uninitialized pointer.
 
@@ -425,7 +409,7 @@ int* p = nullptr;
 
 ---
 
-### Null Pointer
+## Null Pointer
 
 A null pointer intentionally points to nothing.
 
@@ -441,13 +425,64 @@ if (p == nullptr) {
 }
 ```
 
-A null pointer should **never be dereferenced**.
+A null pointer should never be dereferenced.
 
 ---
 
 # ⭐ 15. Classes Containing Pointers
 
-A class can contain pointers as data members.
+Today's OOP practice focused on understanding how a **class can contain a pointer as a data member**.
+
+Example:
+
+```cpp
+class Student {
+private:
+    int* marks;
+};
+```
+
+Here:
+
+```cpp
+int* marks;
+```
+
+means the `Student` object contains a pointer that can store the address of an integer.
+
+For example:
+
+```cpp
+int m = 90;
+
+Student s(&m);
+```
+
+The pointer inside the object can store the address of `m`.
+
+Conceptually:
+
+```text
+m
+┌──────┐
+│  90  │
+└───▲──┘
+    │
+    │ address
+    │
+Student object
+┌─────────────┐
+│ marks ──────┼───→ m
+└─────────────┘
+```
+
+To access the value through the pointer:
+
+```cpp
+*marks
+```
+
+This concept is especially important in **Data Structures**, where nodes contain pointers to other nodes.
 
 Example:
 
@@ -459,23 +494,19 @@ public:
 };
 ```
 
-This is extremely important for **Data Structures**.
+Here:
 
-The `next` pointer can store the address of another `Node`.
-
-```text
-Node 1                 Node 2
-┌─────────────┐       ┌─────────────┐
-│ data = 10   │       │ data = 20   │
-│ next ───────┼──────→│ next = ...  │
-└─────────────┘       └─────────────┘
+```cpp
+Node* next;
 ```
 
-This concept forms the foundation of **Linked Lists**.
+stores the address of another `Node`.
+
+This forms the foundation of **Linked Lists**.
 
 ---
 
-# 16. Pointer to Objects
+# ⭐ 16. Pointer to Objects
 
 A pointer can also point to an object.
 
@@ -492,36 +523,39 @@ public:
 };
 ```
 
-Creating an object:
+Create an object:
 
 ```cpp
 Student s;
 ```
 
-Creating a pointer to the object:
+Create a pointer to the object:
 
 ```cpp
 Student* ptr = &s;
 ```
 
-Members can then be accessed using the `->` operator:
+Now `ptr` contains the address of object `s`.
+
+Because `ptr` is a pointer, we use the `->` operator:
 
 ```cpp
 ptr->name;
 ptr->display();
 ```
 
-### Important
+### Important Rule
 
 ```text
-Object       → .
-Object pointer → ->
+Object          → .
+Object Pointer  → ->
 ```
 
 Example:
 
 ```cpp
 s.display();       // Object
+
 ptr->display();    // Pointer to object
 ```
 
@@ -529,7 +563,7 @@ ptr->display();    // Pointer to object
 
 # ⭐ 17. `this` Pointer
 
-The `this` pointer is a special pointer available inside non-static member functions.
+The `this` pointer is a special pointer available inside **non-static member functions**.
 
 It points to the **current object**.
 
@@ -537,9 +571,7 @@ Example:
 
 ```cpp
 class Student {
-
 public:
-
     string name;
 
     void setName(string name) {
@@ -572,7 +604,83 @@ The `this` pointer is especially useful when class data members and function par
 
 ---
 
-# 18. Array of Objects
+# 🧩 18. Combining Classes Containing Pointers, Pointer to Objects & `this`
+
+I practiced combining all three concepts in one program.
+
+Example:
+
+```cpp
+class Student {
+private:
+    string name;
+    int* marks;
+
+public:
+
+    Student(string name, int* marks) {
+        this->name = name;
+        this->marks = marks;
+    }
+
+    void DisplayData() {
+        cout << "Student Name: " << this->name << endl;
+        cout << "Marks: " << *(this->marks) << endl;
+    }
+
+    void ChangeMarks(int newMarks) {
+        *(this->marks) = newMarks;
+    }
+};
+```
+
+Creating the object:
+
+```cpp
+int m = 90;
+
+Student s("Krishna", &m);
+```
+
+Creating a pointer to the object:
+
+```cpp
+Student* ptr = &s;
+```
+
+Calling functions through the object pointer:
+
+```cpp
+ptr->DisplayData();
+
+ptr->ChangeMarks(95);
+
+ptr->DisplayData();
+```
+
+### Conceptual relationship
+
+```text
+                     Student object
+                    ┌───────────────┐
+                    │ name          │
+                    │ Krishna       │
+                    │               │
+                    │ marks ────────┼────→ m
+                    └───────▲───────┘      90
+                            │
+                            │
+                         this
+                            │
+                            │
+                     Student* ptr
+```
+
+This helped me understand how **objects, pointers, and the `this` pointer work together**.
+
+---
+
+# 19. Array of Objects
 
 I also practiced creating multiple objects using an array.
 
@@ -589,7 +697,7 @@ public:
 };
 ```
 
-An array of objects can be created using:
+Creating an array:
 
 ```cpp
 Student students[3];
@@ -603,11 +711,11 @@ students[1].name = "Rahul";
 students[2].name = "Aman";
 ```
 
-Objects can be accessed using the normal `.` operator.
+Objects are accessed using the `.` operator.
 
 ---
 
-# 19. Array of Object Pointers
+# 20. Array of Object Pointers
 
 I also explored arrays containing pointers to objects.
 
@@ -667,6 +775,10 @@ Pointer Arithmetic
 Pointer to Pointer
     ↓
 Pointers with Objects
+    ↓
+Classes Containing Pointers
+    ↓
+Pointer to Objects
     ↓
 this Pointer
     ↓
@@ -784,19 +896,19 @@ Compile a C++ file using `g++`.
 Example:
 
 ```bash
-g++ pointer.cpp -o pointer
+g++ class_pointer.cpp -o class_pointer
 ```
 
 Run:
 
 ```bash
-./pointer
+./class_pointer
 ```
 
 For Windows:
 
 ```bash
-pointer.exe
+class_pointer.exe
 ```
 
 ---
