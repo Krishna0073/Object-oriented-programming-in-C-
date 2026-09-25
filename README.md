@@ -1,4 +1,4 @@
-# 🚀 Daily C++ OOP Practice — Day 6
+# 🚀 Daily C++ OOP Practice — Day 7
 
 Welcome to my **C++ Object-Oriented Programming (OOP) Practice Repository**.
 
@@ -25,6 +25,9 @@ Through daily practice, I am working on:
 * Understanding the `this` pointer
 * Experimenting with C++ language features
 * Improving problem-solving and programming skills
+* Practicing file handling using `ifstream` and file streams
+* Reading data from external files
+* Understanding file opening, reading, and closing operations
 * Maintaining a record of my daily learning progress
 
 ---
@@ -41,6 +44,7 @@ Through daily practice, I am working on:
 | `pointer_problems.cpp` | Dangling Pointers, Wild Pointers, Null Pointers, Safe Pointer Usage                                  |
 | `object_array.cpp`     | Array of Objects, Object Pointers                                                                    |
 | `class_pointer.cpp`    | Classes Containing Pointers, Pointer to Objects, `this` Pointer                                      |
+| `file.cpp`             | File Handling, `ifstream`, Opening Files, Reading Data, Closing Files                                  |
 
 ---
 
@@ -747,6 +751,141 @@ students[0]->name;
 
 ---
 
+# ⭐ 19. File Handling in C++
+
+Today's practice introduced **File Handling in C++**.
+
+File handling allows a program to store data in a file and read data from a file instead of keeping everything only in memory.
+
+For reading data from a file, I practiced using the `ifstream` class from the `<fstream>` header.
+
+### Basic Structure
+
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream file;
+    file.open("data.txt");
+
+    string name;
+    int marks;
+
+    file >> name >> marks;
+
+    cout << "Name: " << name << endl;
+    cout << "Marks: " << marks << endl;
+
+    file.close();
+
+    return 0;
+}
+```
+
+### Important Concepts
+
+**`#include <fstream>`**
+
+Provides the file stream classes used for file handling.
+
+**`ifstream`**
+
+`ifstream` stands for **input file stream** and is used to read data from a file.
+
+```cpp
+ifstream file;
+```
+
+**Opening a file**
+
+```cpp
+file.open("data.txt");
+```
+
+This opens the specified file so the program can read from it.
+
+**Reading from a file**
+
+The extraction operator `>>` can be used with a file stream just like `cin`.
+
+```cpp
+file >> name >> marks;
+```
+
+**Closing a file**
+
+```cpp
+file.close();
+```
+
+Closing the file releases the file resource after the required operations are completed.
+
+### Data Flow
+
+```text
+External File
+     ↓
+  ifstream
+     ↓
+ Read using >>
+     ↓
+ Variables
+     ↓
+ Program Output
+```
+
+### What I Practiced Today
+
+- Including `<fstream>`
+- Creating an `ifstream` object
+- Opening a file
+- Reading string and integer data
+- Using `>>` with a file stream
+- Displaying file data using `cout`
+- Closing the file
+
+### Practice Program
+
+The program in `file.cpp` reads a student's **name and marks** from a file and displays them on the screen.
+
+```cpp
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main(){
+    ifstream file;
+    file.open("data.txt");
+
+    string name;
+    int marks;
+
+    file>>name>>marks;
+
+    cout<<"Name: "<<name<<endl;
+    cout<<"Marks: "<<marks<<endl;
+
+    file.close();
+
+    return 0;
+}
+```
+
+### Key Difference
+
+```text
+cin         → reads input from keyboard
+ifstream    → reads input from a file
+cout        → displays output on screen
+ofstream    → writes output to a file
+```
+
+File handling is useful for storing information such as **student records, bank data, logs, configuration data, and application records**.
+
+---
+
 # 📈 My Learning Progress
 
 ```text
@@ -801,7 +940,7 @@ OOP Projects
 
 I am following a simple approach:
 
-### Day → Learn → Code → Test → Experiment
+### Day → Learn → Code → Test → Experiment → Document
 
 For every new concept, I try to:
 
@@ -857,9 +996,25 @@ The goal is **consistent practice rather than trying to learn everything at once
 * [ ] Abstract Classes
 * [ ] Templates
 * [ ] Exception Handling
-* [ ] File Handling
+* [x] File Handling
 * [ ] STL with OOP
 * [ ] OOP Mini Projects
+
+---
+
+# 📌 Day 7 Summary
+
+Today I moved from pointers and object-oriented concepts into **File Handling in C++**.
+
+I learned how to:
+
+- Open a file using `ifstream`
+- Read data from a file using `>>`
+- Store file data in variables
+- Display the extracted data
+- Close the file properly
+
+This is my first step toward working with persistent data in C++ and building more practical programs.
 
 ---
 
@@ -896,19 +1051,19 @@ Compile a C++ file using `g++`.
 Example:
 
 ```bash
-g++ class_pointer.cpp -o class_pointer
+g++ file.cpp -o file
 ```
 
 Run:
 
 ```bash
-./class_pointer
+./file
 ```
 
 For Windows:
 
 ```bash
-class_pointer.exe
+file.exe
 ```
 
 ---
@@ -927,6 +1082,6 @@ I am using this repository to strengthen my C++ fundamentals, practice Object-Or
 
 > **Code every day. Understand every concept. Build something with it.**
 
-This repository represents my ongoing journey from **C++ fundamentals to advanced OOP and real-world projects**.
+This repository represents my ongoing journey from **C++ fundamentals to advanced OOP, file handling, and real-world projects**.
 
 More concepts, programs, experiments, and projects will be added as I continue learning.
