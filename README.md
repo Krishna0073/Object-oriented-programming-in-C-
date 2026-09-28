@@ -1,100 +1,133 @@
-# 🚀 Daily C++ OOP Practice — Day 7
+🚀 Daily C++ OOP Practice — Day 15
 
-Welcome to my **C++ Object-Oriented Programming (OOP) Practice Repository**.
+Welcome to my C++ Object-Oriented Programming (OOP) Practice Repository.
 
-This repository contains the programs I write while learning and practicing **C++ OOP concepts on a daily basis**. Instead of only learning theory, I am implementing each concept through small programs and experiments.
+This repository contains the programs I write while learning and practicing C++ OOP concepts on a daily basis. Instead of only learning theory, I am implementing each concept through small programs and experiments.
 
-> **Learn → Code → Practice → Experiment → Improve**
+Learn → Code → Practice → Experiment → Improve
 
----
-
-# 🎯 Purpose
+🎯 Purpose
 
 The main purpose of this repository is to build a strong foundation in C++ and gradually master Object-Oriented Programming.
 
 Through daily practice, I am working on:
 
-* Understanding OOP concepts through code
-* Writing classes and objects
-* Practicing member functions
-* Understanding access control
-* Working with STL containers inside classes
-* Understanding friend functions
-* Working with pointers and memory
-* Understanding pointers with objects and classes
-* Understanding the `this` pointer
-* Experimenting with C++ language features
-* Improving problem-solving and programming skills
-* Practicing file handling using `ifstream` and file streams
-* Reading data from external files
-* Understanding file opening, reading, and closing operations
-* Maintaining a record of my daily learning progress
+Understanding OOP concepts through code
 
----
+Writing classes and objects
 
-# 📂 Practice Files
+Practicing member functions
 
-| File                   | Concepts Practiced                                                                                   |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `chai.cpp`             | Classes, Objects, Data Members, Member Functions, `vector`, Object Initialization                    |
-| `Person.cpp`           | Classes, Public/Private Members, Member Function Declaration & Definition, Scope Resolution Operator |
-| `enum.cpp`             | Enumerations, Symbolic Constants, Reference Variables, Conditional Statements                        |
-| `friend_function.cpp`  | Friend Functions, Object Comparison, `const` References                                              |
-| `pointer.cpp`          | Pointers, Void Pointers, Pointer Arithmetic, Pointer to Pointer                                      |
-| `pointer_problems.cpp` | Dangling Pointers, Wild Pointers, Null Pointers, Safe Pointer Usage                                  |
-| `object_array.cpp`     | Array of Objects, Object Pointers                                                                    |
-| `class_pointer.cpp`    | Classes Containing Pointers, Pointer to Objects, `this` Pointer                                      |
-| `file.cpp`             | File Handling, `ifstream`, Opening Files, Reading Data, Closing Files                                  |
+Understanding access control
 
----
+Working with STL containers inside classes
 
-# 🧠 Concepts Practiced
+Understanding friend functions
 
-## 1. Classes & Objects
+Working with pointers and memory
 
-I started with the basic building blocks of OOP: **classes and objects**.
+Understanding pointers with objects and classes
+
+Understanding the this pointer
+
+Practicing inline functions
+
+Experimenting with C++ language features
+
+Improving problem-solving and programming skills
+
+Practicing file handling using ifstream and file streams
+
+Reading data from external files
+
+Understanding file opening, reading, and closing operations
+
+Maintaining a record of my daily learning progress
+
+📂 Practice Files
+
+File
+
+Concepts Practiced
+
+chai.cpp
+
+Classes, Objects, Data Members, Member Functions, vector, Object Initialization
+
+Person.cpp
+
+Classes, Public/Private Members, Member Function Declaration & Definition, Scope Resolution Operator
+
+enum.cpp
+
+Enumerations, Symbolic Constants, Reference Variables, Conditional Statements
+
+friend_function.cpp
+
+Friend Functions, Object Comparison, const References
+
+pointer.cpp
+
+Pointers, Void Pointers, Pointer Arithmetic, Pointer to Pointer
+
+pointer_problems.cpp
+
+Dangling Pointers, Wild Pointers, Null Pointers, Safe Pointer Usage
+
+object_array.cpp
+
+Array of Objects, Object Pointers
+
+class_pointer.cpp
+
+Classes Containing Pointers, Pointer to Objects, this Pointer
+
+file.cpp
+
+File Handling, ifstream, Opening Files, Reading Data, Closing Files
+
+inline.cpp
+
+Inline Functions, Function Definition, Simple Function Calls
+
+🧠 Concepts Practiced
+
+1. Classes & Objects
+
+I started with the basic building blocks of OOP: classes and objects.
 
 A class acts as a blueprint, while an object is an instance created from that class.
 
-```cpp
 class Chai {
 public:
     string Teaname;
     int serving;
     vector<string> ingredients;
 };
-```
 
 Objects:
 
-```cpp
 Chai chaiOne;
 Chai chaiTwo;
-```
 
-### Concept
+Concept
 
-**Class → Blueprint**
+Class → Blueprint
 
-**Object → Instance of the class**
+Object → Instance of the class
 
----
-
-# 2. Data Members
+2. Data Members
 
 I practiced how objects can store their own data.
 
 Example:
 
-```cpp
 string Teaname;
 int serving;
 vector<string> ingredients;
-```
 
 Each object can contain different values.
 
-```text
 chaiOne
  ├── Teaname → Lemon Tea
  ├── serving → 2
@@ -104,74 +137,56 @@ chaiTwo
  ├── Teaname → Ginger Tea
  ├── serving → 1
  └── ingredients → ginger, water, honey
-```
 
----
-
-# 3. Member Functions
+3. Member Functions
 
 Member functions are functions that belong to a class.
 
 Example:
 
-```cpp
 void Displaydata() {
     cout << "Teaname: " << Teaname << endl;
     cout << "serving: " << serving << endl;
 }
-```
 
 Member functions allow objects to perform operations using their own data.
 
----
-
-# 4. Member Functions Outside the Class
+4. Member Functions Outside the Class
 
 I practiced declaring functions inside a class and defining them outside.
 
 Declaration:
 
-```cpp
 class Person {
 public:
     void getData();
     void DisplayData();
 };
-```
 
 Definition:
 
-```cpp
 void Person::getData() {
     // code
 }
-```
 
-The `::` operator is called the **scope resolution operator**.
+The :: operator is called the scope resolution operator.
 
----
-
-# 5. STL `vector` with Classes
+5. STL vector with Classes
 
 I practiced using STL containers as class members.
 
 Example:
 
-```cpp
 vector<string> ingredients;
-```
 
 This allows an object to store multiple ingredients.
 
----
+⭐ 6. Friend Functions
 
-# ⭐ 6. Friend Functions
-
-A friend function is **not a member function of the class**, but the class can give it permission to access its private and protected members.
+A friend function is not a member function of the class, but the class can give it permission to access its private and protected members.
 
 Example:
 
-```cpp
 class Chai {
 public:
     string Teaname;
@@ -182,44 +197,34 @@ public:
         const Chai &chaiTwo
     );
 };
-```
 
 The function can then compare two different objects.
 
-```cpp
 bool compare(
     const Chai &chaiOne,
     const Chai &chaiTwo
 ) {
     return chaiOne.serving > chaiTwo.serving;
 }
-```
 
----
+7. const References
 
-# 7. `const` References
-
-I also practiced `const` references.
+I also practiced const references.
 
 Example:
 
-```cpp
 const Chai &chaiOne
-```
 
 This means the object is passed by reference without allowing the function to modify it.
 
-It is useful when a function only needs to **read** an object's data.
+It is useful when a function only needs to read an object's data.
 
----
-
-# 8. Enumerations
+8. Enumerations
 
 I practiced C++ enumerations.
 
 Example:
 
-```cpp
 enum Day {
     Monday,
     Tuesday,
@@ -229,96 +234,72 @@ enum Day {
     Saturday,
     Sunday
 };
-```
 
 Enums can represent a fixed collection of named values.
 
----
-
-# 9. Reference Variables
+9. Reference Variables
 
 I practiced reference variables.
 
 Example:
 
-```cpp
 int x = 10;
 int &y = x;
-```
 
-Here, `y` acts as another name for `x`.
+Here, y acts as another name for x.
 
-```cpp
 y = 50;
-```
 
 Result:
 
-```text
 x = 50
 y = 50
-```
 
----
+🔥 10. Pointers in C++
 
-# 🔥 10. Pointers in C++
-
-Pointers store the **memory address of another variable**.
+Pointers store the memory address of another variable.
 
 Example:
 
-```cpp
 int x = 10;
 
 int* ptr = &x;
-```
 
 Relationship:
 
-```text
 x       → stores 10
 &x      → address of x
 ptr     → stores address of x
 *ptr    → value stored at that address
-```
 
----
+11. Void Pointer
 
-# 11. Void Pointer
-
-A `void*` is a generic pointer that can store the address of different data types.
+A void* is a generic pointer that can store the address of different data types.
 
 Example:
 
-```cpp
 int x = 10;
 
 void* ptr = &x;
 
 cout << *(int*)ptr;
-```
 
-A `void*` cannot normally be dereferenced directly because the compiler does not know what type of data it points to.
+A void* cannot normally be dereferenced directly because the compiler does not know what type of data it points to.
 
----
-
-# 12. Pointer Arithmetic
+12. Pointer Arithmetic
 
 I practiced pointer arithmetic.
 
 Pointers can be moved using:
 
-```cpp
 p++;
 p--;
 
 p + n;
 p - n;
-```
 
 Example:
 
-```cpp
 int arr[] = {10, 20, 30};
 
 int* p = arr;
@@ -328,36 +309,28 @@ cout << *p << endl;
 p++;
 
 cout << *p << endl;
-```
 
 Output:
 
-```text
 10
 20
-```
 
 Pointer arithmetic is especially useful when working with arrays.
 
----
-
-# 13. Pointer to Pointer
+13. Pointer to Pointer
 
 A pointer can also store the address of another pointer.
 
 Example:
 
-```cpp
 int x = 10;
 
 int* p = &x;
 
 int** q = &p;
-```
 
 Relationship:
 
-```text
 q
  ↓
 p
@@ -365,108 +338,80 @@ p
 x
  ↓
 10
-```
 
 Therefore:
 
-```cpp
 cout << x;       // 10
 cout << *p;      // 10
 cout << **q;     // 10
-```
 
----
+⚠️ 14. Problems with Pointers
 
-# ⚠️ 14. Problems with Pointers
-
-## Dangling Pointer
+Dangling Pointer
 
 A dangling pointer points to memory that has already been released.
 
-```cpp
 int* p = new int(10);
 
 delete p;
 
 p = nullptr;
-```
 
-After `delete`, using `*p` before resetting it would be dangerous.
+After delete, using *p before resetting it would be dangerous.
 
----
-
-## Wild Pointer
+Wild Pointer
 
 A wild pointer is an uninitialized pointer.
 
-```cpp
 int* p;
-```
 
 It may contain an unpredictable memory address.
 
 A safer approach is:
 
-```cpp
 int* p = nullptr;
-```
 
----
-
-## Null Pointer
+Null Pointer
 
 A null pointer intentionally points to nothing.
 
-```cpp
 int* p = nullptr;
-```
 
 It can be checked before using it:
 
-```cpp
 if (p == nullptr) {
     cout << "Pointer is empty";
 }
-```
 
 A null pointer should never be dereferenced.
 
----
+⭐ 15. Classes Containing Pointers
 
-# ⭐ 15. Classes Containing Pointers
-
-Today's OOP practice focused on understanding how a **class can contain a pointer as a data member**.
+Today's OOP practice focused on understanding how a class can contain a pointer as a data member.
 
 Example:
 
-```cpp
 class Student {
 private:
     int* marks;
 };
-```
 
 Here:
 
-```cpp
 int* marks;
-```
 
-means the `Student` object contains a pointer that can store the address of an integer.
+means the Student object contains a pointer that can store the address of an integer.
 
 For example:
 
-```cpp
 int m = 90;
 
 Student s(&m);
-```
 
-The pointer inside the object can store the address of `m`.
+The pointer inside the object can store the address of m.
 
 Conceptually:
 
-```text
 m
 ┌──────┐
 │  90  │
@@ -478,45 +423,35 @@ Student object
 ┌─────────────┐
 │ marks ──────┼───→ m
 └─────────────┘
-```
 
 To access the value through the pointer:
 
-```cpp
 *marks
-```
 
-This concept is especially important in **Data Structures**, where nodes contain pointers to other nodes.
+This concept is especially important in Data Structures, where nodes contain pointers to other nodes.
 
 Example:
 
-```cpp
 class Node {
 public:
     int data;
     Node* next;
 };
-```
 
 Here:
 
-```cpp
 Node* next;
-```
 
-stores the address of another `Node`.
+stores the address of another Node.
 
-This forms the foundation of **Linked Lists**.
+This forms the foundation of Linked Lists.
 
----
-
-# ⭐ 16. Pointer to Objects
+⭐ 16. Pointer to Objects
 
 A pointer can also point to an object.
 
 Example:
 
-```cpp
 class Student {
 public:
     string name;
@@ -525,55 +460,41 @@ public:
         cout << name;
     }
 };
-```
 
 Create an object:
 
-```cpp
 Student s;
-```
 
 Create a pointer to the object:
 
-```cpp
 Student* ptr = &s;
-```
 
-Now `ptr` contains the address of object `s`.
+Now ptr contains the address of object s.
 
-Because `ptr` is a pointer, we use the `->` operator:
+Because ptr is a pointer, we use the -> operator:
 
-```cpp
 ptr->name;
 ptr->display();
-```
 
-### Important Rule
+Important Rule
 
-```text
 Object          → .
 Object Pointer  → ->
-```
 
 Example:
 
-```cpp
 s.display();       // Object
 
 ptr->display();    // Pointer to object
-```
 
----
+⭐ 17. this Pointer
 
-# ⭐ 17. `this` Pointer
+The this pointer is a special pointer available inside non-static member functions.
 
-The `this` pointer is a special pointer available inside **non-static member functions**.
-
-It points to the **current object**.
+It points to the current object.
 
 Example:
 
-```cpp
 class Student {
 public:
     string name;
@@ -582,39 +503,108 @@ public:
         this->name = name;
     }
 };
-```
 
 Here:
 
-```cpp
 this->name
-```
 
-refers to the `name` belonging to the current object.
+refers to the name belonging to the current object.
 
 Therefore:
 
-```cpp
 this->name = name;
-```
 
 means:
 
-```text
 current object's name = parameter name
-```
 
-The `this` pointer is especially useful when class data members and function parameters have the same name.
+The this pointer is especially useful when class data members and function parameters have the same name.
 
----
+⭐ 18. Inline Functions
 
-# 🧩 18. Combining Classes Containing Pointers, Pointer to Objects & `this`
+I also practiced inline functions in C++.
+
+An inline function is a function where the compiler may replace the function call with the actual function code. This can reduce the overhead of a normal function call for small and simple functions.
+
+Basic Syntax
+
+inline int sum(int a, int b) {
+    return a + b;
+}
+
+Calling the function:
+
+cout << sum(5, 10);
+
+Output:
+
+15
+
+How It Works
+
+Normally:
+
+Function Call
+     ↓
+Go to Function
+     ↓
+Execute Function
+     ↓
+Return Result
+
+With an inline function, the compiler may conceptually replace the call with the function operation:
+
+sum(5, 10)
+     ↓
+5 + 10
+     ↓
+15
+
+Important Points
+
+inline is a request to the compiler, not a command forcing inlining.
+
+It is mainly useful for small and simple functions.
+
+It can reduce function-call overhead.
+
+The compiler decides whether to actually inline the function.
+
+Inline functions can be defined directly in a class definition.
+
+Practice Program
+
+#include<iostream>
+using namespace std;
+
+inline int sum(int a, int b){
+    return a+b;
+}
+
+int main(){
+    cout<<sum(5,10);
+}
+
+Output:
+
+15
+
+Key Idea
+
+inline function
+      ↓
+small function
+      ↓
+compiler may expand function call
+      ↓
+less function-call overhead
+
+🧩 19. Combining Classes Containing Pointers, Pointer to Objects & this
 
 I practiced combining all three concepts in one program.
 
 Example:
 
-```cpp
 class Student {
 private:
     string name;
@@ -636,35 +626,27 @@ public:
         *(this->marks) = newMarks;
     }
 };
-```
 
 Creating the object:
 
-```cpp
 int m = 90;
 
 Student s("Krishna", &m);
-```
 
 Creating a pointer to the object:
 
-```cpp
 Student* ptr = &s;
-```
 
 Calling functions through the object pointer:
 
-```cpp
 ptr->DisplayData();
 
 ptr->ChangeMarks(95);
 
 ptr->DisplayData();
-```
 
-### Conceptual relationship
+Conceptual relationship
 
-```text
                      Student object
                     ┌───────────────┐
                     │ name          │
@@ -678,19 +660,15 @@ ptr->DisplayData();
                             │
                             │
                      Student* ptr
-```
 
-This helped me understand how **objects, pointers, and the `this` pointer work together**.
+This helped me understand how objects, pointers, and the this pointer work together.
 
----
-
-# 19. Array of Objects
+19. Array of Objects
 
 I also practiced creating multiple objects using an array.
 
 Example:
 
-```cpp
 class Student {
 public:
     string name;
@@ -699,69 +677,51 @@ public:
         cout << name << endl;
     }
 };
-```
 
 Creating an array:
 
-```cpp
 Student students[3];
-```
 
-Each element is a separate `Student` object.
+Each element is a separate Student object.
 
-```cpp
 students[0].name = "Krishna";
 students[1].name = "Rahul";
 students[2].name = "Aman";
-```
 
-Objects are accessed using the `.` operator.
+Objects are accessed using the . operator.
 
----
-
-# 20. Array of Object Pointers
+21. Array of Object Pointers
 
 I also explored arrays containing pointers to objects.
 
-```cpp
 Student* students[3];
-```
 
 Unlike:
 
-```cpp
 Student students[3];
-```
 
-this creates an array of **pointers**, not an array of actual Student objects.
+this creates an array of pointers, not an array of actual Student objects.
 
 The pointers can point to dynamically created objects:
 
-```cpp
 students[0] = new Student;
 students[1] = new Student;
 students[2] = new Student;
-```
 
 Members can then be accessed using:
 
-```cpp
 students[0]->name;
-```
 
----
+⭐ 22. File Handling in C++
 
-# ⭐ 19. File Handling in C++
-
-Today's practice introduced **File Handling in C++**.
+Today's practice introduced File Handling in C++.
 
 File handling allows a program to store data in a file and read data from a file instead of keeping everything only in memory.
 
-For reading data from a file, I practiced using the `ifstream` class from the `<fstream>` header.
+For reading data from a file, I practiced using the ifstream class from the <fstream> header.
 
-### Basic Structure
+Basic Structure
 
-```cpp
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -782,49 +742,39 @@ int main() {
 
     return 0;
 }
-```
 
-### Important Concepts
+Important Concepts
 
-**`#include <fstream>`**
+#include <fstream>
 
 Provides the file stream classes used for file handling.
 
-**`ifstream`**
+ifstream
 
-`ifstream` stands for **input file stream** and is used to read data from a file.
+ifstream stands for input file stream and is used to read data from a file.
 
-```cpp
 ifstream file;
-```
 
-**Opening a file**
+Opening a file
 
-```cpp
 file.open("data.txt");
-```
 
 This opens the specified file so the program can read from it.
 
-**Reading from a file**
+Reading from a file
 
-The extraction operator `>>` can be used with a file stream just like `cin`.
+The extraction operator >> can be used with a file stream just like cin.
 
-```cpp
 file >> name >> marks;
-```
 
-**Closing a file**
+Closing a file
 
-```cpp
 file.close();
-```
 
 Closing the file releases the file resource after the required operations are completed.
 
-### Data Flow
+Data Flow
 
-```text
 External File
      ↓
   ifstream
@@ -834,23 +784,27 @@ External File
  Variables
      ↓
  Program Output
-```
 
-### What I Practiced Today
+What I Practiced Today
 
-- Including `<fstream>`
-- Creating an `ifstream` object
-- Opening a file
-- Reading string and integer data
-- Using `>>` with a file stream
-- Displaying file data using `cout`
-- Closing the file
+Including <fstream>
 
-### Practice Program
+Creating an ifstream object
 
-The program in `file.cpp` reads a student's **name and marks** from a file and displays them on the screen.
+Opening a file
 
-```cpp
+Reading string and integer data
+
+Using >> with a file stream
+
+Displaying file data using cout
+
+Closing the file
+
+Practice Program
+
+The program in file.cpp reads a student's name and marks from a file and displays them on the screen.
+
 #include<iostream>
 #include<fstream>
 using namespace std;
@@ -871,24 +825,18 @@ int main(){
 
     return 0;
 }
-```
 
-### Key Difference
+Key Difference
 
-```text
 cin         → reads input from keyboard
 ifstream    → reads input from a file
 cout        → displays output on screen
 ofstream    → writes output to a file
-```
 
-File handling is useful for storing information such as **student records, bank data, logs, configuration data, and application records**.
+File handling is useful for storing information such as student records, bank data, logs, configuration data, and application records.
 
----
+📈 My Learning Progress
 
-# 📈 My Learning Progress
-
-```text
 C++ Basics
     ↓
 Classes
@@ -932,93 +880,146 @@ Polymorphism
 Advanced OOP
     ↓
 OOP Projects
-```
 
----
-
-# 🗓️ Daily Practice Approach
+🗓️ Daily Practice Approach
 
 I am following a simple approach:
 
-### Day → Learn → Code → Test → Experiment → Document
+Day → Learn → Code → Test → Experiment → Document
 
 For every new concept, I try to:
 
-1. Understand the basic theory
-2. Write a small C++ program
-3. Run the program
-4. Change the code and observe the result
-5. Fix errors myself
-6. Add the concept to this repository
-7. Move to the next concept
+Understand the basic theory
 
-The goal is **consistent practice rather than trying to learn everything at once**.
+Write a small C++ program
 
----
+Run the program
 
-# 🔥 OOP Roadmap
+Change the code and observe the result
 
-* [x] Classes
-* [x] Objects
-* [x] Data Members
-* [x] Member Functions
-* [x] Scope Resolution Operator
-* [x] `vector` with Classes
-* [x] Enumerations
-* [x] Reference Variables
-* [x] Friend Functions
-* [x] Pointers
-* [x] Void Pointers
-* [x] Pointer Arithmetic
-* [x] Pointer to Pointer
-* [x] Dangling Pointers
-* [x] Wild Pointers
-* [x] Null Pointers
-* [x] Classes Containing Pointers
-* [x] Pointer to Objects
-* [x] `this` Pointer
-* [x] Array of Objects
-* [x] Array of Object Pointers
-* [ ] Constructors
-* [ ] Constructor Overloading
-* [ ] Destructors
-* [ ] Encapsulation
-* [ ] Static Members
-* [ ] Friend Classes
-* [ ] Inheritance
-* [ ] Types of Inheritance
-* [ ] Function Overloading
-* [ ] Operator Overloading
-* [ ] Function Overriding
-* [ ] Polymorphism
-* [ ] Virtual Functions
-* [ ] Pure Virtual Functions
-* [ ] Abstract Classes
-* [ ] Templates
-* [ ] Exception Handling
-* [x] File Handling
-* [ ] STL with OOP
-* [ ] OOP Mini Projects
+Fix errors myself
 
----
+Add the concept to this repository
 
-# 📌 Day 7 Summary
+Move to the next concept
 
-Today I moved from pointers and object-oriented concepts into **File Handling in C++**.
+The goal is consistent practice rather than trying to learn everything at once.
+
+🔥 OOP Roadmap
+
+Classes
+
+Objects
+
+Data Members
+
+Member Functions
+
+Scope Resolution Operator
+
+vector with Classes
+
+Enumerations
+
+Reference Variables
+
+Friend Functions
+
+Pointers
+
+Void Pointers
+
+Pointer Arithmetic
+
+Pointer to Pointer
+
+Dangling Pointers
+
+Wild Pointers
+
+Null Pointers
+
+Classes Containing Pointers
+
+Pointer to Objects
+
+this Pointer
+
+Inline Functions
+
+Array of Objects
+
+Array of Object Pointers
+
+Constructors
+
+Constructor Overloading
+
+Destructors
+
+Encapsulation
+
+Static Members
+
+Friend Classes
+
+Inheritance
+
+Types of Inheritance
+
+Function Overloading
+
+Operator Overloading
+
+Function Overriding
+
+Polymorphism
+
+Virtual Functions
+
+Pure Virtual Functions
+
+Abstract Classes
+
+Templates
+
+Exception Handling
+
+File Handling
+
+STL with OOP
+
+OOP Mini Projects
+
+📌 Day 15 Summary
+
+Today I continued expanding my C++ OOP knowledge by practicing File Handling, the this pointer, and Inline Functions.
 
 I learned how to:
 
-- Open a file using `ifstream`
-- Read data from a file using `>>`
-- Store file data in variables
-- Display the extracted data
-- Close the file properly
+Work with the this pointer and identify the current object
 
-This is my first step toward working with persistent data in C++ and building more practical programs.
+Use this->member when parameter names and data members are the same
 
----
+Understand inline functions
 
-# 📊 Progress Philosophy
+Define and call a simple inline function
+
+Understand how the compiler may expand small inline function calls
+
+Open a file using ifstream
+
+Read data from a file using >>
+
+Store data from a file in variables
+
+Display extracted data
+
+Close the file properly
+
+These concepts strengthened my understanding of C++ pointers, functions, classes, and practical programming.
+
+📊 Progress Philosophy
 
 This repository is not intended to contain perfect code from day one.
 
@@ -1026,62 +1027,56 @@ Some programs may be simple because I am using them to understand individual con
 
 As I learn more, I will:
 
-* Refactor older programs
-* Improve coding style
-* Add comments and explanations
-* Solve more complex problems
-* Combine multiple OOP concepts
-* Build complete mini-projects
+Refactor older programs
 
----
+Improve coding style
 
-# 🛠️ Technologies
+Add comments and explanations
 
-* **Language:** C++
-* **Compiler:** GCC / MinGW
-* **Editor:** VS Code
-* **Version Control:** Git & GitHub
+Solve more complex problems
 
----
+Combine multiple OOP concepts
 
-# ▶️ How to Run
+Build complete mini-projects
 
-Compile a C++ file using `g++`.
+🛠️ Technologies
+
+Language: C++
+
+Compiler: GCC / MinGW
+
+Editor: VS Code
+
+Version Control: Git & GitHub
+
+▶️ How to Run
+
+Compile a C++ file using g++.
 
 Example:
 
-```bash
 g++ file.cpp -o file
-```
 
 Run:
 
-```bash
 ./file
-```
 
 For Windows:
 
-```bash
 file.exe
-```
 
----
+👨‍💻 About Me
 
-# 👨‍💻 About Me
-
-**Krishna Sharma**
+Krishna Sharma
 
 B.Tech CSE (AI/ML) Student
 
 I am using this repository to strengthen my C++ fundamentals, practice Object-Oriented Programming, and develop better programming and problem-solving skills.
 
----
+⭐ Final Goal
 
-# ⭐ Final Goal
+Code every day. Understand every concept. Build something with it.
 
-> **Code every day. Understand every concept. Build something with it.**
-
-This repository represents my ongoing journey from **C++ fundamentals to advanced OOP, file handling, and real-world projects**.
+This repository represents my ongoing journey from C++ fundamentals to advanced OOP, file handling, inline functions, and real-world projects.
 
 More concepts, programs, experiments, and projects will be added as I continue learning.
