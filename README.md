@@ -1,4 +1,4 @@
-🚀 Daily C++ OOP Practice — Day 15
+🚀 Daily C++ OOP Practice — Day 20
 
 Welcome to my C++ Object-Oriented Programming (OOP) Practice Repository.
 
@@ -92,7 +92,7 @@ Inline Functions, Function Definition, Simple Function Calls
 
 🧠 Concepts Practiced
 
-1. Classes & Objects
+Classes & Objects
 
 I started with the basic building blocks of OOP: classes and objects.
 
@@ -100,9 +100,9 @@ A class acts as a blueprint, while an object is an instance created from that cl
 
 class Chai {
 public:
-    string Teaname;
-    int serving;
-    vector<string> ingredients;
+string Teaname;
+int serving;
+vector<string> ingredients;
 };
 
 Objects:
@@ -116,7 +116,7 @@ Class → Blueprint
 
 Object → Instance of the class
 
-2. Data Members
+Data Members
 
 I practiced how objects can store their own data.
 
@@ -129,29 +129,29 @@ vector<string> ingredients;
 Each object can contain different values.
 
 chaiOne
- ├── Teaname → Lemon Tea
- ├── serving → 2
- └── ingredients → lemon, water, tea
+├── Teaname → Lemon Tea
+├── serving → 2
+└── ingredients → lemon, water, tea
 
 chaiTwo
- ├── Teaname → Ginger Tea
- ├── serving → 1
- └── ingredients → ginger, water, honey
+├── Teaname → Ginger Tea
+├── serving → 1
+└── ingredients → ginger, water, honey
 
-3. Member Functions
+Member Functions
 
 Member functions are functions that belong to a class.
 
 Example:
 
 void Displaydata() {
-    cout << "Teaname: " << Teaname << endl;
-    cout << "serving: " << serving << endl;
+cout << "Teaname: " << Teaname << endl;
+cout << "serving: " << serving << endl;
 }
 
 Member functions allow objects to perform operations using their own data.
 
-4. Member Functions Outside the Class
+Member Functions Outside the Class
 
 I practiced declaring functions inside a class and defining them outside.
 
@@ -159,19 +159,19 @@ Declaration:
 
 class Person {
 public:
-    void getData();
-    void DisplayData();
+void getData();
+void DisplayData();
 };
 
 Definition:
 
 void Person::getData() {
-    // code
+// code
 }
 
 The :: operator is called the scope resolution operator.
 
-5. STL vector with Classes
+STL vector with Classes
 
 I practiced using STL containers as class members.
 
@@ -189,25 +189,26 @@ Example:
 
 class Chai {
 public:
-    string Teaname;
-    int serving;
+string Teaname;
+int serving;
 
-    friend bool compare(
-        const Chai &chaiOne,
-        const Chai &chaiTwo
-    );
+friend bool compare(
+    const Chai &chaiOne,
+    const Chai &chaiTwo
+);
+
 };
 
 The function can then compare two different objects.
 
 bool compare(
-    const Chai &chaiOne,
-    const Chai &chaiTwo
+const Chai &chaiOne,
+const Chai &chaiTwo
 ) {
-    return chaiOne.serving > chaiTwo.serving;
+return chaiOne.serving > chaiTwo.serving;
 }
 
-7. const References
+const References
 
 I also practiced const references.
 
@@ -219,25 +220,25 @@ This means the object is passed by reference without allowing the function to mo
 
 It is useful when a function only needs to read an object's data.
 
-8. Enumerations
+Enumerations
 
 I practiced C++ enumerations.
 
 Example:
 
 enum Day {
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday,
-    Friday,
-    Saturday,
-    Sunday
+Monday,
+Tuesday,
+Wednesday,
+Thursday,
+Friday,
+Saturday,
+Sunday
 };
 
 Enums can represent a fixed collection of named values.
 
-9. Reference Variables
+Reference Variables
 
 I practiced reference variables.
 
@@ -272,7 +273,7 @@ x       → stores 10
 ptr     → stores address of x
 *ptr    → value stored at that address
 
-11. Void Pointer
+Void Pointer
 
 A void* is a generic pointer that can store the address of different data types.
 
@@ -282,11 +283,11 @@ int x = 10;
 
 void* ptr = &x;
 
-cout << *(int*)ptr;
+cout << (int)ptr;
 
 A void* cannot normally be dereferenced directly because the compiler does not know what type of data it points to.
 
-12. Pointer Arithmetic
+Pointer Arithmetic
 
 I practiced pointer arithmetic.
 
@@ -317,7 +318,7 @@ Output:
 
 Pointer arithmetic is especially useful when working with arrays.
 
-13. Pointer to Pointer
+Pointer to Pointer
 
 A pointer can also store the address of another pointer.
 
@@ -332,11 +333,11 @@ int** q = &p;
 Relationship:
 
 q
- ↓
+↓
 p
- ↓
+↓
 x
- ↓
+↓
 10
 
 Therefore:
@@ -380,7 +381,7 @@ int* p = nullptr;
 It can be checked before using it:
 
 if (p == nullptr) {
-    cout << "Pointer is empty";
+cout << "Pointer is empty";
 }
 
 A null pointer should never be dereferenced.
@@ -393,7 +394,7 @@ Example:
 
 class Student {
 private:
-    int* marks;
+int* marks;
 };
 
 Here:
@@ -416,9 +417,9 @@ m
 ┌──────┐
 │  90  │
 └───▲──┘
-    │
-    │ address
-    │
+│
+│ address
+│
 Student object
 ┌─────────────┐
 │ marks ──────┼───→ m
@@ -434,8 +435,8 @@ Example:
 
 class Node {
 public:
-    int data;
-    Node* next;
+int data;
+Node* next;
 };
 
 Here:
@@ -454,11 +455,12 @@ Example:
 
 class Student {
 public:
-    string name;
+string name;
 
-    void display() {
-        cout << name;
-    }
+void display() {
+    cout << name;
+}
+
 };
 
 Create an object:
@@ -497,11 +499,12 @@ Example:
 
 class Student {
 public:
-    string name;
+string name;
 
-    void setName(string name) {
-        this->name = name;
-    }
+void setName(string name) {
+    this->name = name;
+}
+
 };
 
 Here:
@@ -529,7 +532,7 @@ An inline function is a function where the compiler may replace the function cal
 Basic Syntax
 
 inline int sum(int a, int b) {
-    return a + b;
+return a + b;
 }
 
 Calling the function:
@@ -545,19 +548,19 @@ How It Works
 Normally:
 
 Function Call
-     ↓
+↓
 Go to Function
-     ↓
+↓
 Execute Function
-     ↓
+↓
 Return Result
 
 With an inline function, the compiler may conceptually replace the call with the function operation:
 
 sum(5, 10)
-     ↓
+↓
 5 + 10
-     ↓
+↓
 15
 
 Important Points
@@ -578,11 +581,11 @@ Practice Program
 using namespace std;
 
 inline int sum(int a, int b){
-    return a+b;
+return a+b;
 }
 
 int main(){
-    cout<<sum(5,10);
+cout<<sum(5,10);
 }
 
 Output:
@@ -592,11 +595,11 @@ Output:
 Key Idea
 
 inline function
-      ↓
+↓
 small function
-      ↓
+↓
 compiler may expand function call
-      ↓
+↓
 less function-call overhead
 
 🧩 19. Combining Classes Containing Pointers, Pointer to Objects & this
@@ -607,24 +610,25 @@ Example:
 
 class Student {
 private:
-    string name;
-    int* marks;
+string name;
+int* marks;
 
 public:
 
-    Student(string name, int* marks) {
-        this->name = name;
-        this->marks = marks;
-    }
+Student(string name, int* marks) {
+    this->name = name;
+    this->marks = marks;
+}
 
-    void DisplayData() {
-        cout << "Student Name: " << this->name << endl;
-        cout << "Marks: " << *(this->marks) << endl;
-    }
+void DisplayData() {
+    cout << "Student Name: " << this->name << endl;
+    cout << "Marks: " << *(this->marks) << endl;
+}
 
-    void ChangeMarks(int newMarks) {
-        *(this->marks) = newMarks;
-    }
+void ChangeMarks(int newMarks) {
+    *(this->marks) = newMarks;
+}
+
 };
 
 Creating the object:
@@ -647,23 +651,23 @@ ptr->DisplayData();
 
 Conceptual relationship
 
-                     Student object
-                    ┌───────────────┐
-                    │ name          │
-                    │ Krishna       │
-                    │               │
-                    │ marks ────────┼────→ m
-                    └───────▲───────┘      90
-                            │
-                            │
-                         this
-                            │
-                            │
-                     Student* ptr
+                 Student object
+                ┌───────────────┐
+                │ name          │
+                │ Krishna       │
+                │               │
+                │ marks ────────┼────→ m
+                └───────▲───────┘      90
+                        │
+                        │
+                     this
+                        │
+                        │
+                 Student* ptr
 
 This helped me understand how objects, pointers, and the this pointer work together.
 
-19. Array of Objects
+Array of Objects
 
 I also practiced creating multiple objects using an array.
 
@@ -671,11 +675,12 @@ Example:
 
 class Student {
 public:
-    string name;
+string name;
 
-    void display() {
-        cout << name << endl;
-    }
+void display() {
+    cout << name << endl;
+}
+
 };
 
 Creating an array:
@@ -690,7 +695,7 @@ students[2].name = "Aman";
 
 Objects are accessed using the . operator.
 
-21. Array of Object Pointers
+Array of Object Pointers
 
 I also explored arrays containing pointers to objects.
 
@@ -712,7 +717,303 @@ Members can then be accessed using:
 
 students[0]->name;
 
-⭐ 22. File Handling in C++
+⭐ 22. Constructors
+
+I practiced Constructors in C++.
+
+A constructor is a special member function of a class that is automatically called when an object is created.
+
+A constructor is mainly used to initialize the data members of an object.
+
+Basic Syntax
+
+class Student {
+public:
+Student() {
+cout << "Constructor called";
+}
+};
+
+Creating the object:
+
+Student s;
+
+When s is created, the constructor is automatically called.
+
+Important Properties
+
+A constructor:
+
+Has the same name as the class
+
+Has no return type
+
+Is automatically called when an object is created
+
+Is mainly used for initialization
+
+Can be overloaded
+
+Can have parameters
+
+Can have default arguments
+
+Default Constructor
+
+A constructor with no parameters is called a default constructor.
+
+Example:
+
+class Student {
+public:
+Student() {
+cout << "Default Constructor";
+}
+};
+
+Parameterized Constructor
+
+A constructor that receives parameters is called a parameterized constructor.
+
+Example:
+
+class Student {
+int age;
+
+public:
+Student(int age) {
+this->age = age;
+}
+
+void display() {
+    cout << age;
+}
+
+};
+
+Creating the object:
+
+Student s(20);
+
+Here, 20 is passed to the constructor.
+
+Constructor Overloading
+
+A class can have multiple constructors with different parameter lists.
+
+Example:
+
+class Student {
+public:
+Student() {
+cout << "Default";
+}
+
+Student(int age) {
+    cout << age;
+}
+
+};
+
+This is called constructor overloading.
+
+Copy Constructor
+
+A copy constructor creates a new object using an existing object.
+
+Basic Syntax:
+
+Student(const Student &s) {
+age = s.age;
+}
+
+Example:
+
+class Student {
+int age;
+
+public:
+Student(int age) {
+this->age = age;
+}
+
+Student(const Student &s) {
+    age = s.age;
+}
+
+void display() {
+    cout << age;
+}
+
+};
+
+Creating objects:
+
+Student s1(20);
+Student s2(s1);
+
+Here, s2 receives the data of s1.
+
+Constructor Flow
+
+Object creation
+↓
+Constructor called automatically
+↓
+Data members initialized
+↓
+Object becomes ready to use
+
+⭐ 23. Destructors
+
+I also practiced Destructors in C++.
+
+A destructor is a special member function that is automatically called when an object is destroyed.
+
+It is commonly used for cleanup and releasing resources.
+
+Basic Syntax
+
+class Student {
+public:
+~Student() {
+cout << "Destructor called";
+}
+};
+
+Important Properties
+
+A destructor:
+
+Has the same name as the class
+
+Starts with ~
+
+Has no return type
+
+Takes no parameters
+
+Cannot be overloaded
+
+Is automatically called when an object is destroyed
+
+Example:
+
+class Student {
+public:
+Student() {
+cout << "Constructor" << endl;
+}
+
+~Student() {
+    cout << "Destructor" << endl;
+}
+
+};
+
+int main() {
+Student s;
+}
+
+Execution:
+
+Student s;
+↓
+Constructor called
+↓
+Program uses object
+↓
+Object goes out of scope
+↓
+Destructor called
+
+Constructor vs Destructor
+
+Constructor
+
+Initializes an object
+
+Same name as class
+
+No ~
+
+Can have parameters
+
+Can be overloaded
+
+Called when object is created
+
+Destructor
+
+Cleans up an object
+
+Same name as class with ~
+
+Cannot have parameters
+
+Cannot be overloaded
+
+Called when object is destroyed
+
+Dynamic Memory and Destructor
+
+When a class manages dynamically allocated memory, a destructor can release that memory.
+
+Example:
+
+class Student {
+int* marks;
+
+public:
+Student(int value) {
+marks = new int(value);
+}
+
+~Student() {
+    delete marks;
+}
+
+};
+
+Here:
+
+new allocates memory.
+
+delete releases the allocated memory.
+
+Conceptually:
+
+Constructor
+↓
+Allocate resource
+↓
+Use resource
+↓
+Destructor
+↓
+Release resource
+
+Practice Programs
+
+The program in constructor.cpp practices default, parameterized, overloaded, and copy constructors.
+
+The program in destructor.cpp practices destructor execution and object lifetime.
+
+Key Idea
+
+Constructor
+↓
+Object creation
+↓
+Initialization
+
+Destructor
+↓
+Object destruction
+↓
+Cleanup
+
+⭐ 24. File Handling in C++
 
 Today's practice introduced File Handling in C++.
 
@@ -727,20 +1028,21 @@ Basic Structure
 using namespace std;
 
 int main() {
-    ifstream file;
-    file.open("data.txt");
+ifstream file;
+file.open("data.txt");
 
-    string name;
-    int marks;
+string name;
+int marks;
 
-    file >> name >> marks;
+file >> name >> marks;
 
-    cout << "Name: " << name << endl;
-    cout << "Marks: " << marks << endl;
+cout << "Name: " << name << endl;
+cout << "Marks: " << marks << endl;
 
-    file.close();
+file.close();
 
-    return 0;
+return 0;
+
 }
 
 Important Concepts
@@ -776,14 +1078,14 @@ Closing the file releases the file resource after the required operations are co
 Data Flow
 
 External File
-     ↓
-  ifstream
-     ↓
- Read using >>
-     ↓
- Variables
-     ↓
- Program Output
+↓
+ifstream
+↓
+Read using >>
+↓
+Variables
+↓
+Program Output
 
 What I Practiced Today
 
@@ -810,20 +1112,21 @@ The program in file.cpp reads a student's name and marks from a file and display
 using namespace std;
 
 int main(){
-    ifstream file;
-    file.open("data.txt");
+ifstream file;
+file.open("data.txt");
 
-    string name;
-    int marks;
+string name;
+int marks;
 
-    file>>name>>marks;
+file>>name>>marks;
 
-    cout<<"Name: "<<name<<endl;
-    cout<<"Marks: "<<marks<<endl;
+cout<<"Name: "<<name<<endl;
+cout<<"Marks: "<<marks<<endl;
 
-    file.close();
+file.close();
 
-    return 0;
+return 0;
+
 }
 
 Key Difference
@@ -838,47 +1141,53 @@ File handling is useful for storing information such as student records, bank da
 📈 My Learning Progress
 
 C++ Basics
-    ↓
+↓
 Classes
-    ↓
+↓
 Objects
-    ↓
+↓
 Data Members
-    ↓
+↓
 Member Functions
-    ↓
+↓
 Scope Resolution
-    ↓
+↓
 STL with Classes
-    ↓
+↓
 Enums & References
-    ↓
+↓
 Friend Functions
-    ↓
+↓
 Pointers
-    ↓
+↓
 Pointer Arithmetic
-    ↓
+↓
 Pointer to Pointer
-    ↓
+↓
 Pointers with Objects
-    ↓
+↓
 Classes Containing Pointers
-    ↓
+↓
 Pointer to Objects
-    ↓
+↓
 this Pointer
-    ↓
+↓
 Constructors
-    ↓
+↓
+Constructor Overloading
+↓
+Copy Constructor
+↓
+Destructors
+↓
 Encapsulation
-    ↓
+↓
 Inheritance
-    ↓
+↓
 Polymorphism
-    ↓
+↓
 Advanced OOP
-    ↓
+↓
 OOP Projects
 
 🗓️ Daily Practice Approach
@@ -953,7 +1262,13 @@ Array of Object Pointers
 
 Constructors
 
+Default Constructor
+
+Parameterized Constructor
+
 Constructor Overloading
+
+Copy Constructor
 
 Destructors
 
@@ -991,11 +1306,21 @@ STL with OOP
 
 OOP Mini Projects
 
-📌 Day 15 Summary
+📌 Day 20 Summary
 
-Today I continued expanding my C++ OOP knowledge by practicing File Handling, the this pointer, and Inline Functions.
+Today I continued expanding my C++ OOP knowledge by practicing Constructors, Destructors, the this pointer, Inline Functions, and File Handling.
 
 I learned how to:
+
+Work with constructors and understand automatic object initialization
+
+Use default and parameterized constructors
+
+Understand constructor overloading and copy constructors
+
+Understand destructors and automatic object cleanup
+
+Understand the object lifetime from construction to destruction
 
 Work with the this pointer and identify the current object
 
@@ -1077,6 +1402,6 @@ I am using this repository to strengthen my C++ fundamentals, practice Object-Or
 
 Code every day. Understand every concept. Build something with it.
 
-This repository represents my ongoing journey from C++ fundamentals to advanced OOP, file handling, inline functions, and real-world projects.
+This repository represents my ongoing journey from C++ fundamentals to advanced OOP, constructors, destructors, file handling, inline functions, and real-world projects.
 
 More concepts, programs, experiments, and projects will be added as I continue learning.
