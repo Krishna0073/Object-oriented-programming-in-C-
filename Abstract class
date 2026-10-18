@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class LivingBeing 
+{
+    public:
+    	void breathe() {
+        	cout << "Breathes oxygen from air." << endl;
+    	}
+    	
+    	virtual void sound() = 0; // The sound method is incomplete.
+};
+
+class Human : public LivingBeing
+{
+	private:
+		string name;
+		string food;
+		string language;
+	
+	public:
+		Human()
+		{
+		}
+
+		Human(string nme, string fd, string lang)
+		{
+			name = nme;
+			food = fd;
+			language = lang;
+		}
+
+		void eat()
+		{
+			cout << name << "Eats " << food << endl;
+	    }
+
+    	void speak()
+    	{
+    		cout << name << "Speaks " << language << endl;
+    	}
+    
+    	void sound()
+    	{
+    		cout << "Humans will speak" << endl; // This method has to be defined.
+    	}
+};
+
+int main() {	
+
+    Human human("John", "Burger", "English");
+    human.breathe();
+    human.sound();
+
+	return 0;
+}
