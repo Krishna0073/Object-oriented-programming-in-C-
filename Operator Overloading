@@ -1,0 +1,22 @@
+//operator overloading
+#include <iostream>
+using namespace std;
+class Complex
+{
+public:
+     int a;
+    Complex(int x)
+    {
+        a = x;
+    
+    }
+    Complex operator + (Complex c){
+        Complex temp(0);
+        temp.a=a+c.a;
+        return temp;
+    }};
+    int main(){
+        Complex c1(10),c2(20);
+        Complex c3=c1+c2;
+        cout<<c3.a;
+    }
