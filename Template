@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+template<typename T1,typename T2>
+class Box{
+    T1 val1;
+    T2 val2;
+    public:
+    Box(T1 v1,T2 v2){
+        val1=v1;
+        val2=v2;
+    }
+    void getvalue(){
+         cout<<"Value is: "<<val1<<" and "<<val2<<endl;
+    }
+    T1 getval1(){
+        return val1;
+    }
+    T2 getval2(){
+        return val2;
+    }
+};
+int main(){
+    Box<string,int>b1("Hi",100);
+    Box<int,string>b2(50,"Hello");
+    b1.getvalue();
+    b2.getvalue();
+    cout<<b1.getval1()<<" and "<<b1.getval2()<<endl;
+    cout<<b2.getval1()<<" and "<<b2.getval2()<<endl;  
+    return 0;
+}
