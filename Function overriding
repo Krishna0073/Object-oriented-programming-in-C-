@@ -1,0 +1,30 @@
+//Function overriding
+#include <iostream>
+using namespace std;
+class Base
+{
+public:
+    virtual void display()
+    {
+        cout << "This is the base class." << endl;
+    }
+};
+class Derived : public Base
+{
+public:
+    void display()
+    {
+        cout << "This is the derived class." << endl;
+    }
+};  
+int main()
+{
+    Base* basePtr;
+    Derived derivedObj;
+    basePtr = &derivedObj;
+
+    // Call the display function using base class pointer
+    basePtr->display(); // Output: This is the derived class.
+
+    return 0;
+}
