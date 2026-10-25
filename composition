@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class Rohit
+{
+public:
+    string Pen;
+};
+class Mohan : public Rohit
+{
+public:
+    string Pencil;
+};
+class Ritu : public Mohan
+{
+    string eraser;
+
+public:
+    void Use()
+    {
+
+        cout << "Enter the Pen Name: ";
+        cin >> Pen;
+        cout << "Enter the Pencil Name: ";
+        cin >> Pencil;
+        cout << "Enter the eraser Name: ";
+        cin >> eraser;
+        cout << "Pen Name is: " << Pen << endl;
+        cout << "Pencil Name is: " << Pencil << endl;
+        cout << "Eraser Name is: " << eraser << endl;
+    }
+};
+int main()
+{
+    Ritu R;
+    R.Use();
+}
